@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button } from '@material-ui/core'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import '@fontsource/roboto'
+
+import './App.css'
 
 function App() {
+  const handleChange = (e) => {
+    console.log(e.target.value)
+  }
+
+  const todos = ["eat pomelo", "eat durian", "eat mango", "eat mangosteen"]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <CssBaseline />
+      <Button variant="contained" color="primary">Hello World</Button>
+      <select onChange={handleChange}>
+        {todos.map((todo, i) => <option key={todo} value={todo}>{todo}</option>)}
+      </select>
+    </>
+  )
 }
 
-export default App;
+export default App
